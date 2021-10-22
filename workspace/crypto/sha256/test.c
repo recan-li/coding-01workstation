@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "md5.h"
+#include "sha256.h"
 #include "convert.h"
 
 int log_hexdump(const char *title, const unsigned char *data, int len)
@@ -52,9 +52,10 @@ int log_hexdump(const char *title, const unsigned char *data, int len)
 int main(int argc, const char *argv[])
 {
 	const char *data = "C1D0F8FB4958670DBA40AB1F3752EF0D";
-	uint8_t digest_calc[MD5_DIGEST_LEN];
-	uint8_t digest_exp[MD5_DIGEST_LEN] = "\x4C\x61\x8F\xD1\x4C\x14\x88\x1E\xFB\x13\x35\x2E\x40\x04\x73\xB1";
-	md5_ctx_t ctx;
+    const char *digest_exp_str = "97B7437DF061F15182974B18E62B3D8AAFE333DCBDD2074CB8D4916509B4AD23";
+	uint8_t digest_calc[SHA256_DIGEST_LEN];
+    uint8_t digest_exp_hex[SHA256_DIGEST_LEN];
+	sha256_ctx_t ctx;
 	const char *p_calc = data;
 	uint8_t data_bytes[128];
 	uint16_t len_bytes;
@@ -74,17 +75,18 @@ int main(int argc, const char *argv[])
 		printf("hex string - bytes convert FAIL\n");
 	}
 
-	crypto_md5_init(&ctx);
-	crypto_md5_update(&ctx, (uint8_t *)p_calc, strlen(p_calc));
-	crypto_md5_final(&ctx, digest_calc);
+	crypto_sha256_init(&ctx);
+	crypto_sha256_update(&ctx, (uint8_t *)p_calc, strlen(p_calc));
+	crypto_sha256_final(&ctx, digest_calc);
 
-	if (!memcmp(digest_calc, digest_exp, sizeof(digest_calc))) {
-		printf("MD5 digest test OK\n");
+    utils_hex_string_2_bytes(digest_exp_str, digest_exp_hex, &len_bytes);
+	if (len_bytes == sizeof(digest_calc) && !memcmp(digest_calc, digest_exp_hex, sizeof(digest_calc))) {
+		printf("SHA256 digest test OK\n");
         log_hexdump("digest_calc", digest_calc, sizeof(digest_calc));
 	} else {
 		log_hexdump("digest_calc", digest_calc, sizeof(digest_calc));
-		log_hexdump("digest_exp", digest_exp, sizeof(digest_exp));
-		printf("MD5 digest test FAIL\n");
+		log_hexdump("digest_exp", digest_exp_hex, sizeof(digest_exp_hex));
+		printf("SHA256 digest test FAIL\n");
 	}
 
 	return 0;
