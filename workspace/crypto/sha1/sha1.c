@@ -29,16 +29,6 @@ static const uint8_t sha1_padding[64] = {
     0,    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 };
 
-/* Implementation that should never be optimized out by the compiler */
-static void zeroize(void *v, uint32_t n)
-{
-    volatile uint8_t *p = (uint8_t *)v;
-
-    while (n--) {
-        *p++ = 0;
-    }
-}
-
 static void local_sha1_process(sha1_ctx_t *ctx,
                       const uint8_t   data[64])
 {

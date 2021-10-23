@@ -1,6 +1,7 @@
 #! /bin/bash -e
 
-cmd="gcc *.c ../../utils/convert.c -I../../utils -o test"
+CFLAGS="-Wall -Werror"
+cmd="gcc *.c ../../utils/convert.c -I../../utils $CFLAGS -o test"
 
 if [ "$1" = "clean" ]; then
     rm -rf test
