@@ -6,10 +6,12 @@ function build_and_test_crypto()
 {
 	crypto=$1
 	cd $crypto
-	echo "build $crypto ..."
-	./build.sh clean && ./build.sh
-	echo "test $crypto ..."
-	./test
+	if [ -e ./build.sh ]; then
+		echo "build $crypto ..."
+		./build.sh clean && ./build.sh
+		echo "test $crypto ..."
+		./test
+	fi
 	cd - > /dev/null
 }
 
