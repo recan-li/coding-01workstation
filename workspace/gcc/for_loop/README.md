@@ -6,42 +6,36 @@
 
 └── gc_section
     ├── build.sh 			编译脚本
-    ├── main.c 				测试源代码的main.c
-    ├── sub.c 				sub模块的C源文件
-    ├── sub.h 				sub模块的头文件
+    ├── 1.ok.c 				测试源代码的1.ok.c
+    ├── 1.fail.c 			测试源代码的1.fail.c
+    ├── 2.c 				checksum模块的C源文件
+    ├── 2.h 				checksum模块的头文件
     └── README.md 			本说明文档
 
 # 执行编译
 
-在gcc_helloworld目录下执行：
+在for_loop目录下执行：
 
-按照正常流程编译，不生成中间文件：
+按照正常流程编译，生成ok的可执行：
 ```c
-./build.sh
+./build.sh ok
 ```
 
-按照一步步的流程编译，生成中间文件：
+按照正常流程编译，生成fail的可执行：
 ```c
-./build.sh step
-```
-
-按照一次性编译的流程，且生成中间文件：
-```c
-./build.sh allinone
-```
-
-按照一步步地的编译流程，使用交叉编译工具链，生成中间文件（由于没有添加C库链接，可能会链接报错）：
-```c
-./build.sh step cross
+./build.sh fail
 ```
 
 # 编译清除
 
-在gcc_helloworld目录下执行：
+在for_loop目录下执行：
 
 ```c
 ./build.sh clean
 ```
+
+# 验证分析
+分析1.ok.s和1.fail.s文件，对比分析不同的汇编代码的差异。
 
 # demo测试及分析
 见我的[CSDN博文](http://yyds.recan-li.cn)。
