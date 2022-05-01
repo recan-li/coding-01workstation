@@ -44,7 +44,7 @@ char *_memcopy(char* dest, const char *src, size_t len)
     return dest;
 }
 
-int main()
+int main(void)
 {
     char buf[30] = "123456789abcdef";
 	
@@ -61,4 +61,6 @@ int main()
 	printf("before-memcpy-buf: %s\r\n", buf);
     _memcopy(buf + 5, buf, 9);
 	printf("after-memcpy-buf: %s\r\n", buf);
+
+	return 0;
 }
