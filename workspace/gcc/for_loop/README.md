@@ -4,6 +4,7 @@
 
 # 文件说明
 
+```shell
 └── gc_section
     ├── build.sh 			编译脚本
     ├── 1.ok.c 				测试源代码的1.ok.c
@@ -11,6 +12,7 @@
     ├── 2.c 				checksum模块的C源文件
     ├── 2.h 				checksum模块的头文件
     └── README.md 			本说明文档
+```
 
 # 执行编译
 

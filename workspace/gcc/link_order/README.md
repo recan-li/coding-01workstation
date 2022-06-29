@@ -4,6 +4,7 @@
 
 # 文件说明
 
+```shell
 └── link_order
     ├── build.sh 			编译脚本
     ├── main.c 				测试源代码的main.c
@@ -14,6 +15,7 @@
     ├── libe.c 				e模块的C源文件，打包成静态库参与链接
     ├── libf.c 				f模块的C源文件，打包成静态库参与链接
     └── README.md 			本说明文档
+```
 
 # 程序逻辑关系
 

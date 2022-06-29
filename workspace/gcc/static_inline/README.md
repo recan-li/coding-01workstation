@@ -4,11 +4,13 @@
 
 # 文件说明
 
+```shell
 └── static_inline
     ├── build.sh 			编译脚本
     ├── main.c 				修正后的main.c
     ├── main.nostatic.c 	编译报错的main.c
     └── README.md 			本说明文档
+```
 
 # 执行编译
 

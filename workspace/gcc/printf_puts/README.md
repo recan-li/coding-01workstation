@@ -4,10 +4,12 @@
 
 # 文件说明
 
+```shell
 └── gc_section
     ├── build.sh 			编译脚本
     ├── main.c 				测试源代码的main.c
     └── README.md 			本说明文档
+```
 
 # 执行编译
 

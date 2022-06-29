@@ -4,12 +4,14 @@
 
 # 文件说明
 
+```shell
 └── static_inline
     ├── build.sh 			    编译脚本
     ├── main.c                  测试文件main.c
     ├── macro.h                 定义若干宏定义
     ├── macro_inline.h          定义一个内联函数
     └── README.md               本说明文档
+```
 
 # 执行编译
 

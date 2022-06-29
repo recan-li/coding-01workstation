@@ -4,12 +4,14 @@
 
 # 文件说明
 
+```shell
 └── dns
     ├── build.sh 			编译脚本
     ├── dns.c 				域名解析的组包/解析源码
     ├── dns.h 				导出接口的头文件
     ├── main.c 				测试源代码的main.c
     └── README.md 			本说明文档
+```
 
 # 执行编译
 
